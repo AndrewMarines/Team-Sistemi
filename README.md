@@ -5,4 +5,4 @@ Repository quinta superiore materie tecniche
 --------------------------------------------------------------------------------------------------------------------
 # PLC MAT CON INVERTER
 Gestione di un motore asincrono trifase tramite utilizzo inverter e plc siemens S7 1200.
-Programma utilizzato **Tia Portal**
+Programma utilizzato **Tia Portal**.
