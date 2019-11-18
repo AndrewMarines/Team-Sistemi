@@ -1,4 +1,10 @@
 #include <LiquidCrystal.h>
+#include <SoftwareSerial.h>
+
+const int rxPin = 9;
+const int txPin = 6;
+SoftwareSerial bluetooth(rxPin, txPin);
+
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);    //RS, ENABLE, D7, D6, D5, D4
 
 #define SENSORE_CELLA           A1  // ingresso analogico 
@@ -19,10 +25,10 @@ enum {
 unsigned long PESO_ATT;        //Peso misurato, da 0kg a 150kg
 long  N_ADC;           //Numero corrispondente al ADC (O-1023)
 long stato;
-int altezza;
+float altezza;
 String sesso;
 String entrata = ""; //input da serial monitor
-String incomingByte;
+String message="";
 
 
 void setup() {
@@ -32,9 +38,12 @@ void setup() {
   pinMode (LED_VERDE, OUTPUT);
   pinMode (LED_GIALLO, OUTPUT);
   Serial.begin(9600);
+  bluetooth.begin(9600); //set baud rate
   stato=INIT;
   lcd.clear();
 }
+
+
 
 void loop() {
 
@@ -45,7 +54,6 @@ void loop() {
   
   }
   
-
   
 
 
@@ -53,7 +61,7 @@ void loop() {
     //verifico se qualcuno è sulla bilancia
     case INIT:
       lcd.clear();
-      digitalWrite(RETROILLUMINAZIONE,HIGH), digitalWrite(LED_ROSSO, LOW),digitalWrite(LED_VERDE, LOW),digitalWrite(LED_GIALLO, LOW);
+      digitalWrite(RETROILLUMINAZIONE,LOW), digitalWrite(LED_ROSSO, LOW),digitalWrite(LED_VERDE, LOW),digitalWrite(LED_GIALLO, LOW);
 
       N_ADC = analogRead(SENSORE_CELLA);  //Leggo il valore dell'ingresso analogico.
       PESO_ATT = 150 * N_ADC; //Trovo il valore del peso attuale tramite la proporzione.
@@ -63,6 +71,7 @@ void loop() {
         Serial.println("Inserisci gender(maschio/femmina): ");
         lcd.setCursor(0,0);
         lcd.print("Inserisci gender(maschio/femmina): ");
+        bluetooth.print("Inserisci gender(maschio/femmina): ");
         stato=GENDER;
       }
       else{
@@ -72,10 +81,30 @@ void loop() {
 
     case GENDER:
       digitalWrite(RETROILLUMINAZIONE,HIGH);
+        if (bluetooth.available() > 0) {
+              message = bluetooth.read();
+              if(message!=""){
+                message=sesso;
+                message="";
+              }
+              if(sesso.equals("maschio\n")||sesso.equals("femmina\n")){
+                lcd.clear();
+                Serial.println("Inserisci altezza: ");
+                lcd.setCursor(0,0);
+                lcd.print("Altezza?");
+                entrata="";
+                stato = ALTEZZA;
+              }
+
+          }
       
         if(entrata!=""){
+             
           sesso=entrata;
           if(sesso.equals("maschio\n")||sesso.equals("femmina\n")){
+            if (bluetooth.available() > 0) {
+              bluetooth.print(sesso);
+            }
             lcd.clear();
             Serial.println("Inserisci altezza: ");
             lcd.setCursor(0,0);
@@ -90,11 +119,27 @@ void loop() {
 
     // chiede l'altezza (cm)
     case ALTEZZA:
+      if (bluetooth.available() > 0) {
+              message = bluetooth.read();
+              if(message!=""){
+                altezza=message.toInt();
+                message="";
+                altezza=float(altezza/100);
+                altezza=altezza*altezza;
+                stato = LETTURA_CELLA;
+                        
+                }
+          } 
+    
       if(entrata!=""){
+        altezza=entrata.toInt();
+        altezza=float(altezza/100);
+        altezza=altezza*altezza;
+        if (bluetooth.available() > 0) {
+        bluetooth.print(altezza);
+        }
         stato = LETTURA_CELLA;
 
-        altezza=entrata.toInt();
-        
       }
 
       break;
@@ -107,45 +152,56 @@ void loop() {
       
       lcd.setCursor(1,2);
       lcd.print("PESO: "+String(PESO_ATT)+" kg");
-      long  BMI= PESO_ATT/(int(int(altezza)/100)^2); 
+      
+
+      long  BMI= PESO_ATT/altezza; 
       
 
 
       if(sesso=="maschio\n"||sesso=="femmina\n"){
           //NORMOPESO
-          if(BMI>=18 && BMI<24){
+          if(BMI>=19 && BMI<29.5){
             digitalWrite(LED_VERDE, HIGH);
             digitalWrite(LED_ROSSO, LOW);
             digitalWrite(LED_GIALLO, LOW);
             lcd.setCursor(0,0);
             lcd.print("SEI IN FORMA");
-            delay(1000);
+            if (bluetooth.available() > 0) {
+               bluetooth.print("SEI IN FORMA... PESO: "+String(PESO_ATT)+" kg");
+            }
+            delay(100);
 
           }
           //SOTTOPESO
-          if(BMI<18){
+          if(BMI<19){
             digitalWrite(LED_VERDE, LOW);
             digitalWrite(LED_ROSSO, LOW);
             digitalWrite(LED_GIALLO, HIGH);
             lcd.setCursor(0,0);
             lcd.print("SEI SOTTOPESO");
-            delay(1000);
+            if (bluetooth.available() > 0) {
+               bluetooth.print("SEI SOTTOPESO... PESO: "+String(PESO_ATT)+" kg");
+            }
+            delay(100);
 
 
           }
           //SOVRAPPESO
-          if(BMI>=24){
+          if(BMI>=29.5){
             digitalWrite(LED_VERDE, LOW);
             digitalWrite(LED_ROSSO, HIGH);
             digitalWrite(LED_GIALLO, LOW);
             lcd.setCursor(0,0);
             lcd.print("SEI SOVRAPPESO");
-            delay(1000);
+            if (bluetooth.available() > 0) {
+               bluetooth.print("SEI SOVRAPPESO... PESO: "+String(PESO_ATT)+" kg");
+            }
+            delay(100);
 
           }
       }
       if(PESO_ATT<30){
-          delay(2000);
+          delay(200);
           stato=INIT;
         }
 
