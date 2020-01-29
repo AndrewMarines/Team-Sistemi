@@ -1,0 +1,94 @@
+(ExpressProject "Design21"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\cancello.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    ("CONT GENERICO NC"
+      (FullPartName "CONT GENERICO NC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("PULS DI EMERGENZA"
+      (FullPartName "PULS DI EMERGENZA.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CIV. LAMPADA"
+      (FullPartName "CIV. LAMPADA.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("BOBINA  CONTATTORE"
+      (FullPartName "BOBINA  CONTATTORE.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CONTATTORE TRIFASE CON BOBINA"
+      (FullPartName "CONTATTORE TRIFASE CON BOBINA.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("INT DI POT TRIP"
+      (FullPartName "INT DI POT TRIP.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("MOTORE AS TRIF "
+      (FullPartName "MOTORE AS TRIF .Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CONT SELETTORE NC"
+      (FullPartName "CONT SELETTORE NC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CONT SELETTORE NA"
+      (FullPartName "CONT SELETTORE NA.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CONT GENERICO NA"
+      (FullPartName "CONT GENERICO NA.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("CONT FINECORSA NC"
+      (FullPartName "CONT FINECORSA NC.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("INT AUT MT BIP"
+      (FullPartName "INT AUT MT BIP.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    (GND
+      (LibraryName "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\CAPSYM.OLB")
+      (DeviceIndex "0"))
+    ("PLC S7 1200  AC-DC-RLY"
+      (FullPartName "PLC S7 1200  AC-DC-RLY.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\cancello.dsn")
+      (Path "Design Resources" ".\cancello.dsn" "SCHEMATIC1")
+      (Select "Design Resources" ".\cancello.dsn" "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 0 200 0 395"))
+      (Tab 0)))
+  (MPSSessionName "studente"))

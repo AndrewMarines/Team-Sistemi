@@ -1,0 +1,63 @@
+(ExpressProject "Design1"
+  (ProjectVersion "19981106")
+  (ProjectType "PCB")
+  (Folder "Design Resources"
+    (Folder "Library")
+    (NoModify)
+    (File ".\schema di potenza cancello.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x"))
+  (Folder "Outputs")
+  (Folder "Referenced Projects")
+  (PartMRUSelector
+    ("INT AUT MT TRIP"
+      (FullPartName "INT AUT MT TRIP.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("INT AUT MT BIP"
+      (FullPartName "INT AUT MT BIP.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("TERMICO TRIFASE2"
+      (FullPartName "TERMICO TRIFASE2.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    ("TERMICO TRIFASE1"
+      (FullPartName "TERMICO TRIFASE1.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0"))
+    (TERRA1
+      (FullPartName "TERRA1.Normal")
+      (LibraryName
+         "C:\ORCAD\ORCAD_10.5\TOOLS\CAPTURE\LIBRARY\&EM ELETTROMEC.9-2017.OLB")
+      (DeviceIndex "0")))
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Design Resources" ".\schema di potenza cancello.dsn")
+      (Path "Design Resources" ".\schema di potenza cancello.dsn" "SCHEMATIC1")
+      (Select "Design Resources" ".\schema di potenza cancello.dsn"
+         "SCHEMATIC1" "PAGE1"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 1193 1393 -10 385"))
+      (Tab 0))
+    (Doc
+      (Type "COrSchematicDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -8 -30 695 1332 -1 538")
+        (Scroll "0 0")
+        (Zoom "100")
+        (Occurrence "/"))
+      (Path
+         "C:\USERS\STUDENTE\DESKTOP\CANCELLO\SCHEMA\POTENZA\SCHEMA DI POTENZA CANCELLO.DSN")
+      (Schematic "SCHEMATIC1")
+      (Page "PAGE1")))
+  (MPSSessionName "studente"))
